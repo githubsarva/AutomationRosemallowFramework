@@ -1,0 +1,36 @@
+08/06/2021 23:27:56 devpinoyLogger Loading Property files
+08/06/2021 23:27:56 devpinoyLogger Loaded Property files successfully
+08/06/2021 23:28:00 devpinoyLogger Launching Browser
+08/06/2021 23:28:01 devpinoyLogger ***********************TestCase  " login "  starts executing ***********************
+08/06/2021 23:28:02 devpinoyLogger Opening the URL:https://www.saucedemo.com/
+08/06/2021 23:28:02 devpinoyLogger Entering the Username
+08/06/2021 23:28:02 devpinoyLogger Entering the Password
+08/06/2021 23:28:03 devpinoyLogger Click the Login button
+08/06/2021 23:28:03 devpinoyLogger Click the Menu 
+08/06/2021 23:28:03 devpinoyLogger Click the Logout Link
+08/06/2021 23:28:03 devpinoyLogger ***********************TestCase  " login "  ends execution ***********************
+08/06/2021 23:28:03 devpinoyLogger login TestCase is PASSED
+08/06/2021 23:28:05 devpinoyLogger Quits the session
+08/06/2021 23:28:05 devpinoyLogger Loading Property files
+08/06/2021 23:28:05 devpinoyLogger Loaded Property files successfully
+08/06/2021 23:28:08 devpinoyLogger Launching Browser
+08/06/2021 23:28:09 devpinoyLogger ***********************TestCase  " checkout "  starts executing ***********************
+08/06/2021 23:28:09 devpinoyLogger Opening the URL:https://www.saucedemo.com/
+08/06/2021 23:28:10 devpinoyLogger ***** Data Driving from row no :1 *****
+08/06/2021 23:28:10 devpinoyLogger Entering the Username
+08/06/2021 23:28:10 devpinoyLogger Entering the Password
+08/06/2021 23:28:15 devpinoyLogger Click the Login button
+08/06/2021 23:28:15 devpinoyLogger Click the Saucelab Back Pack
+08/06/2021 23:28:16 devpinoyLogger Add to cart the item
+08/06/2021 23:28:16 devpinoyLogger Click the shoppingcartlink
+08/06/2021 23:28:16 devpinoyLogger Click the checkout
+08/06/2021 23:28:16 devpinoyLogger Entering the firstname
+08/06/2021 23:28:17 devpinoyLogger Entering the lastname
+08/06/2021 23:28:17 devpinoyLogger Entering the Postalcode
+08/06/2021 23:28:17 devpinoyLogger Click the continue button
+08/06/2021 23:28:17 devpinoyLogger Click the finish button
+08/06/2021 23:28:17 devpinoyLogger Click the Menu 
+08/06/2021 23:28:17 devpinoyLogger Click the Logout Link
+08/06/2021 23:28:17 devpinoyLogger ***********************TestCase  " checkout "  ends execution ***********************
+08/06/2021 23:28:17 devpinoyLogger checkout TestCase is PASSED
+08/06/2021 23:28:20 devpinoyLogger Quits the session

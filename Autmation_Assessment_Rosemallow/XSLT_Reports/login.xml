@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Login_Suite">
+  <test name="Login_Test">
+    <classes>
+    
+      <class name="com.Saucedemo.login.login"/> 
+     
+     
+    </classes>
+  </test> <!-- Login_Test -->
+</suite> <!-- Login_Suite -->
+

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Checkout_Suite" parallel="none">
+  <test name="Checkout_Test">
+    <classes>
+      
+      <class name="com.Saucedemo.checkout.checkout"/>
+    </classes>
+  </test> <!-- Checkout_Test -->
+</suite> <!-- Checkout_Suite -->

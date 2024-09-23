@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE project [
+]>
+
+<project name="Executing Hybrid Driven Test Automation Framework" default="zip" basedir=".">  
+
+
+    <property environment="env"/>    
+    <property name="ws.home" value="${basedir}"/>
+	<property name="ws.jar" value="G:\SW-Workspace\Autmation_Assessment_Rosemallow\jar_core"/>
+    <property name="test.dest" value="${ws.home}/build"/>
+    <property name="test.src" value="${ws.home}/src"/>
+	<property name="ng.result" value="test-output"/>
+    
+        <target name="setClassPath" unless="test.classpath">
+        <path id="classpath_jars">
+            <fileset dir="${ws.jar}" includes="*.jar"/>
+        </path>
+        <pathconvert pathsep=":"   property="test.cclasspath"  refid="classpath_jars"/>
+    </target>
+
+    <target name="init" depends="setClassPath">
+        <tstamp>
+            <format property="start.time" pattern="MM/dd/yyyy hh:mm aa" />
+        </tstamp>
+        <condition property="ANT"  value="${env.ANT_HOME}/bin/ant.bat"  else="${env.ANT_HOME}/bin/ant">
+                    <os family="windows" />
+        </condition>
+        <taskdef name="testng" classpath="${test.cclasspath}"   classname="org.testng.TestNGAntTask" />
+        </target>
+     
+    <target name="clean">
+        <delete dir="${test.dest}"/>
+    </target>
+    
+	    <target name="compile" depends="init, clean" > 
+			<delete includeemptydirs="true" quiet="true">
+	            <fileset dir="${test.dest}" includes="**/*"/>
+			</delete>
+	        <echo message="making directory..."/>
+			<mkdir dir="${test.dest}"/>
+	       
+	      <echo message="compiling..."/>
+	        <javac   debug="true"  destdir="${test.dest}"  srcdir="${test.src}"   target="1.8"  classpath="${test.cclasspath}">
+	        </javac>
+	    	 <copy todir="${test.dest}">
+	    	            <fileset dir="${test.src}" excludes="**/*.java"/>
+	    	  </copy>
+	      </target>
+       
+    <target name="run" depends="compile">
+        <testng classpath="${test.cclasspath}:${test.dest}" suitename="All_Suite">	
+            <xmlfileset dir="${ws.home}" includes="Final_Suite.xml"/>
+        </testng>
+    </target>
+	
+	
+	<path id="test.cc">
+	        <fileset dir="${ws.jar}" includes="*.jar"/>
+	</path>
+	
+	  <target name="makexsltreports" depends="run">
+	        <mkdir dir="${ws.home}/XSLT_Reports/output"/>
+
+	        <xslt in="${ng.result}/testng-results.xml" style="src/com/Saucedemo/xslt/testng-results.xsl"
+	              out="${ws.home}/XSLT_Reports/output/index.html" classpathref="test.cc" processor="SaxonLiaison">
+	            <param name="testNgXslt.outputDir" expression="${ws.home}/XSLT_Reports/output/"/>
+	            <param name="testNgXslt.showRuntimeTotals" expression="true"/>
+	        </xslt>
+	    </target>
+	
+	<target name="zip" depends="makexsltreports">
+			<zip destfile="${basedir}/TestReports.zip">
+		    <zipfileset dir="G:\SW-Workspace\Autmation_Assessment_Rosemallow\XSLT_Reports\output" includes="overview-chart.svg"/>
+			<zipfileset dir="G:\SW-Workspace\Autmation_Assessment_Rosemallow\src\com\Saucedemo\logs" includes="Application.log"/>
+		    </zip>
+	</target> 
+	
+	
+</project>
